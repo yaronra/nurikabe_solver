@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Nurikabe Solver</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+    <h1>Nurikabe Solver</h1>
+
+    <!-- 4.1 Controls -->
+    <div id="controls">
+        <div class="ctrl-row row-1">
+            <label>Rows: <input type="number" id="rows" min="2" value="5"></label>
+            <label>Columns: <input type="number" id="cols" min="2" value="5"></label>
+            <button id="buildBtn">Build Grid</button>
+            <label style="margin-left:.75rem">
+            or load from Janko ID:
+            <input type="number" id="jankoId" min="1" placeholder="e.g., 768" style="width:7rem">
+            </label>
+            <button id="loadJankoBtn">Load from janko.at</button>
+        </div>
+        <div class="ctrl-row row-2">
+            <button id="solveBtn" disabled>Solve!</button>
+            <button id="editBtn" class="hidden">Edit Grid</button>
+        </div>
+        <div class="ctrl-row row-3">
+            <span id="status" class="hidden"></span>
+        </div>
+    </div>
+
+    <!-- 4.2 Grid placeholder -->
+    <div id="gridWrap" class="pannable">
+        <div id="grid" class="grid hidden"></div>
+    </div>
+    <!-- 4.3 Spinner (hidden by default) -->
+    <!-- navigation bar (kept hidden until the solver finishes) -->
+    <div id="navBar" class="hidden">
+        <button id="prevBtn" class="navbtn">◀</button>
+        <span id="stepCounter">Step 1 / 1</span>
+        <button id="nextBtn" class="navbtn">▶</button>
+        <span class="hint">Page through solution steps using buttons or arrow keys</span>
+    </div>
+    <!-- spinner -->
+    <div id="spinner" class="spinner hidden"></div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

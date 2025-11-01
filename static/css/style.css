@@ -1,0 +1,87 @@
+body { font-family: system-ui, sans-serif; margin: 2rem; }
+#controls { display: block; }
+.ctrl-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.75rem;
+    align-items: center;
+}
+/* Add spacing between rows */
+.ctrl-row + .ctrl-row {
+    margin-top: 0.75rem;
+}
+/* Center the message row and give it space */
+.row-3 {
+    justify-content: flex-start;
+    min-height: 1.5rem;
+}
+#status {
+    font-style: italic;
+}
+.grid {
+    display: inline-grid;
+    margin-top: 1rem;
+    border: 2px solid #444;
+    grid-auto-rows: 2.2rem;
+    overflow: hidden;  /* This clips any content that extends beyond the border */
+}
+/* Wrapper scrolls when content is larger than the viewport */
+#gridWrap {
+    max-width: 100%;
+    max-height: calc(100vh - 240px);  /* leaves room for controls/status/nav */
+    overflow: auto;                   /* both axes */
+}
+/* Grab-to-pan UX */
+.pannable { cursor: grab; }
+.pannable.grabbing { cursor: grabbing; }
+.cell {
+    width: 2.2rem; 
+    height: 2.2rem;
+    text-align: center; 
+    font-size: 1rem; 
+    line-height: 2.2rem;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.cell input { width: 100%; height: 100%; border: none; text-align: center; }
+.wall  { background: #000; color: #000; }  /* black wall */
+.isle  { background: #fff; }               /* island */
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #444;
+    border-radius: 50%;
+    width: 28px; height: 28px;
+    animation: spin 1s linear infinite;
+    margin: 1rem auto;
+}
+@keyframes spin { 100% { transform: rotate(360deg); } }
+.hidden { display: none; }
+#status { margin-left: 1rem; font-style: italic; }
+#prevBtn, #nextBtn { margin-left: 0.5rem; }
+
+#navBar {
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.95rem;
+}
+#navBar .hint { margin-left: 0.8rem; font-style: italic; opacity: 0.8; }
+#stepCounter { min-width: 5.5rem; text-align: center; }
+
+#navBar.hidden {           /* higher specificity than #navBar alone   */
+    display: none !important;
+}
+
+.navbtn {
+    width: 2.2rem;
+    height: 2.2rem;
+    padding: 0;
+    display: inline-flex;      /* centre the glyph inside the square  */
+    align-items: center;
+    justify-content: center;
+    line-height: 1;            /* ignore font’s default line-height   */
+    text-align: center;
+    font-size: 1rem;
+    cursor: pointer;
+}
